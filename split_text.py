@@ -1,3 +1,5 @@
+import re
+
 '''
 text = """Член бригады ресторана
 Обязанности (МакКафе):
@@ -14,7 +16,7 @@ text2 = 'и т.д. и т.п.'
 text3 = 'а.б.в.г.д. лол'
 text1 = 'А.Б.В.Г., lол'
 '''
-def merge_reduction(text: str):
+def split_text(text: str):
     i=0
     cout = 0
     size = len(text)
@@ -43,7 +45,10 @@ def merge_reduction(text: str):
                     i = i - cout + 1
         else:
             i+=1
-    return text
+
+    split_regex = re.compile(r'[.!?…]')
+    sentences = [t for t in split_regex.split(text)]
+    return sentences
 
 '''
 print(merge_reduction(text3))
