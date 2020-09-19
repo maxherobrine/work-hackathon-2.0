@@ -23,8 +23,8 @@ def search(description: str, question: list):
                 max_insertions = 1
                 max_substitutions = 0
             for sentence in lowerSentences:
-                if find_near_matches(keyword, sentence, max_l_dist, max_deletions, max_insertions,
-                                     max_substitutions) and sentence not in resultSentences:
+                if find_near_matches(keyword, sentence, max_l_dist=max_l_dist, max_deletions=max_deletions,
+                                     max_insertions=max_insertions, max_substitutions=max_substitutions) and sentence not in resultSentences:
                     resultSentences.append(sentence)
         else:
             synonym = list(keyword.keys())[0]
@@ -35,11 +35,10 @@ def search(description: str, question: list):
                                          max_substitutions=0) and sentence not in resultSentences:
                         resultSentences.append(sentence)
 
-    #print(resultSentences)
+    # print(resultSentences)
     return resultSentences
 
-
-#search('''Формирование заказов
+# search('''Формирование заказов
 # Погрузо-разгрузочные работы
 # Проведение инвентаризации
 # Управление электропогрузчиком
