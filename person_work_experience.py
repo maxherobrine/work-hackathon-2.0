@@ -1,4 +1,5 @@
 import datetime as DT
+
 '''
 person1 = {'id': 12345, 'category': ['лол', 'инженер', 'технолог'],
            'startDate': ['2020-08-08', '2019-07-07', '2018-04-05'],
@@ -59,7 +60,9 @@ def calculate_work_time(start: str, end: str):
     delta = int((endDate - startDate).days / 30)
     return delta
 
+
 '''
 print(person_work_experience(person1, 'лол'))
 print(person_work_experience(person2, 'лол'))
 '''
+

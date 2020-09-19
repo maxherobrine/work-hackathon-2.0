@@ -18,9 +18,6 @@ def vacancies_filter(personInformation: dict, category: string, categorySynonyms
 
     person = {'id': personInformation.get('id'), 'category': [], 'startDate': [],
               'endDate': []}
-    #if personInformation.get('category') == category:
-        #person.update({'category': category})
-   # else:
     for name in personInformation.get('category'):
         isSuitable = 0
         words = name.replace('-', ' ').split();
