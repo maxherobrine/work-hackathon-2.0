@@ -18,23 +18,23 @@ def vacancies_filter(personInformation: dict, category: string, categorySynonyms
 
     person = {'id': personInformation.get('id'), 'category': [], 'startDate': [],
               'endDate': []}
-    if personInformation.get('category') == category:
-        person.update({'category': category})
-    else:
-        for name in personInformation.get('category'):
-            isSuitable = 0
-            words = name.replace('-', ' ').split();
-            for i in words:
-                if isSuitable:
+    #if personInformation.get('category') == category:
+        #person.update({'category': category})
+   # else:
+    for name in personInformation.get('category'):
+        isSuitable = 0
+        words = name.replace('-', ' ').split();
+        for i in words:
+            if isSuitable:
+                break
+            for synonym in categorySynonyms:
+                if i == synonym:
+                    categories.append(name)
+                    start.append(personInformation.get('startDate')[count])
+                    end.append(personInformation.get('endDate')[count])
+                    isSuitable = 1
                     break
-                for synonym in categorySynonyms:
-                    if i == synonym:
-                        categories.append(name)
-                        start.append(personInformation.get('startDate')[count])
-                        end.append(personInformation.get('endDate')[count])
-                        isSuitable = 1
-                        break
-            count += 1
+        count += 1
     if len(categories) != 0:
         person.update({'category': categories})
         person.update({'startDate': start})
