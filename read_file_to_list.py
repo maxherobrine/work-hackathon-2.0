@@ -3,6 +3,7 @@ def read_file_to_list(file:str):
     words = (f.read())
     words = words.replace('\n', '').split(',')
     f.close()
+    return words
 
 
 '''read_file_to_list("synonyms.txt")'''
