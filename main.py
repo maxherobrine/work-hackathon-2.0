@@ -1,3 +1,0 @@
-import searchBySentence
-
-# main program
