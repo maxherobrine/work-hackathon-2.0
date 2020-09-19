@@ -6,4 +6,5 @@ def read_file_to_list(file:str):
     return words
 
 
+
 '''read_file_to_list("synonyms.txt")'''
