@@ -13,6 +13,7 @@ person5 = {'id': 523456789, 'category': ['официант'], 'startDate': "19.0
 def vacancies_filter(personInformation: dict, category: string, categorySynonyms: list):
     isSuitable = 0
     categories = []
+
     person = {'id': personInformation.get('id'), 'category': [], 'startDate': personInformation.get('startDate'),
               'endDate': personInformation.get('endDate')}
     if personInformation.get('category') == category:
