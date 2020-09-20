@@ -80,6 +80,17 @@ def calculate_work_time(start: str, end: str):
     return delta
 
 
+def other_experience(profession:list, experience:list):
+    size = len(profession)
+    otherExp = {}
+    for i in range(size):
+        otherExp.update({profession[i]: experience[i]})
+
+    return otherExp
+
+
+
+
 '''
 print(person_work_experience(person1, 'лол'))
 print(person_work_experience(person2, 'лол'))
