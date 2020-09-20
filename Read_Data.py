@@ -48,7 +48,7 @@ class Person:
     id = ""
     work_experience = []
 
-    def feel(self, information):
+    def fill(self, information):
         if self.id != information[0]:
             self.work_experience.clear()
             self.id = information[0]
