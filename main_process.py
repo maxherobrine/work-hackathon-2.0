@@ -42,11 +42,14 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                 i = 0
                 answers = []
                 for question in storekeeperQuestions:
+                    # с оптимизацией
                     sentences = search(description, question)
                     if not sentences:
                         answers.append(QA_answer(questions[i], [description]))
                     else:
                         answers.append(QA_answer(questions[i], sentences))
+                    # без оптимизации
+                    print(QA_answer(questions[i], [description]))
                     i += 1
 
                 jsonCreate(personDict, companies, category, answers)
