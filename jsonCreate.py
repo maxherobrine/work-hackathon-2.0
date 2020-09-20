@@ -3,9 +3,12 @@ import json
 
 
 def jsonCreate(dictExperience:dict, companies:list, category: str, answers: list):
+    experience = 'Да'
+    if not dictExperience.pop(category):
+        experience = 'Не совсем'
     mainJson = {'q0': dictExperience.get('id'),
                 'q1': category,
-                'q2': dictExperience.pop(category),
+                'q2': experience,
                 'q2d': dictExperience.pop('time'),
                 'q3': other_experience(dictExperience.pop('profession'), dictExperience.pop('experience')),
                 'q4': answers[0],
