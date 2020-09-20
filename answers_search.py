@@ -35,30 +35,34 @@ def Translate(str, l_from, l_to):
 
 
 def QA_answer(question_id, sourse_text: list):
+    if len(sourse_text) == 0:
+        return []
     answer = []
     if question_id == 'q7':
         data = read_QA_data(path_to_programms)
         if data is None:
-            return None
+            return answer
         for elem in data:
             for string in sourse_text:
+                if len(string) == 0:
+                    continue
                 if elem in string:
                     answer.append(elem)
         return answer
     elif question_id == 'q6':
         data = read_QA_data(path_to_storageSystem)
         if data is None:
-            return None
+            return answer
         for elem in data:
             for string in sourse_text:
-                if len(sourse_text) == 0:
+                if len(string) == 0:
                     continue
                 if elem in string:
                     start_index = string.find(elem)
                     end_index = start_index
-                    while string[start_index].isalpha():
+                    while start_index > 0 and string[start_index].isalpha():
                         start_index = start_index - 1
-                    while string[end_index].isalpha():
+                    while end_index < len(string) and string[end_index].isalpha():
                         end_index = end_index + 1
                     start_index = start_index + 1
                     answer.append(string[start_index:end_index])
@@ -66,12 +70,12 @@ def QA_answer(question_id, sourse_text: list):
     else:
         q = questions.get(question_id)
         for string in sourse_text:
+            if len(string) == 0:
+                continue
             # text = Translate(string, 'ru', 'en')
             a = model([string], [q])[0][0]
             if not a == "I don't know":
                 answer.append(a)
-            else:
-                return None
         return answer
 
 

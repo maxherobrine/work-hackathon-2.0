@@ -5,6 +5,7 @@ from jsonCreate import jsonCreate
 from person_work_experience import person_work_experience
 from read_file_to_list import read_file_to_list
 from searchBySentence import search
+from answers_search import QA_answer
 
 
 # main program
@@ -31,7 +32,7 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
             if personDict:
                 cout += 1
                 personDict = person_work_experience(personDict, category)
-                print(str(cout) + '. ' + str(personDict))
+                #print(str(cout) + '. ' + str(personDict))
 
                 description = ''
                 companies = []
@@ -47,16 +48,16 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                     if not sentences:
                         answer = QA_answer(questions[i], [description])
                         answers.append(answer)
-                        print(answer)
+                        #print(answer)
                     else:
-                        answers = QA_answer(questions[i], sentences)
+                        answer = QA_answer(questions[i], sentences)
                         answers.append(answer)
-                        print(answer)
+                        #print(answer)
                     # без оптимизации
-                    print(QA_answer(questions[i], [description]))
+                    #print(QA_answer(questions[i], [description]))
                     i += 1
-
+                if cout % 100 == 0:
+                    print(cout)
                 jsonCreate(personDict, companies, category, answers)
 
         person.fill([x.lower() for x in list(row.values())])
-    print(cout)
