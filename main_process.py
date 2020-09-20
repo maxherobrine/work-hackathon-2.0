@@ -19,4 +19,4 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                 personDict = person_work_experience(personDict, category)
                 #print(personDict)
         person.fill([x.lower() for x in list(row.values())])
-    print(cout)
+    #print(cout)
