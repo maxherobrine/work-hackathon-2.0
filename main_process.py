@@ -34,14 +34,22 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                 #print(personDict)
 
                 description = ''
+                companies = []
                 for work in person.work_experience:
                     description += work.description
-                for question in storekeeperQuestions:
-                    print(search(description, question))
-
+                    companies.append(work.organization)
+                questions = ['q4', 'q6', 'q7', 'q8', 'q9']
+                i = 0
                 answers = []
+                for question in storekeeperQuestions:
+                    sentences = search(description, question)
+                    if not sentences:
+                        answers.append(QA_answer(questions[i], [description]))
+                    else:
+                        answers.append(QA_answer(questions[i], sentences))
+                    i += 1
 
-                jsonCreate(personDict, category, answers)
+                jsonCreate(personDict, companies, category, answers)
 
         person.fill([x.lower() for x in list(row.values())])
     #print(cout)
