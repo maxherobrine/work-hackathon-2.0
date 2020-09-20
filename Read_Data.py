@@ -7,21 +7,21 @@ def sort_first_elem(array):
     return array[0]
 
 
-with open("resume_to_hackaton .csv") as resume_csv:
-    csv_reader = csv.DictReader(resume_csv, delimiter=";")
-    line_count = 0
-    i = 0
-    for row in csv_reader:
-        rows.append(list(row.values()))
-    rows.sort(key=sort_first_elem)
-    with open("resume_sorted.csv", "w") as f:
-        for i in range(len(rows)):
-            for j in range(len(row)):
-                f.write('"')
-                f.write(rows[i][j].replace('"', '""'))
-                f.write('"')
-                f.write(";")
-            f.write("\n")
+# with open("resume_to_hackaton .csv") as resume_csv:
+#     csv_reader = csv.DictReader(resume_csv, delimiter=";")
+#     line_count = 0
+#     i = 0
+#     for row in csv_reader:
+#         rows.append(list(row.values()))
+#     rows.sort(key=sort_first_elem)
+#     with open("resume_sorted.csv", "w") as f:
+#         for i in range(len(rows)):
+#             for j in range(len(row)):
+#                 f.write('"')
+#                 f.write(rows[i][j].replace('"', '""'))
+#                 f.write('"')
+#                 f.write(";")
+#             f.write("\n")
 
 
 class Work:
@@ -74,12 +74,10 @@ def do_smth(person__):
     print(person__)
 
 
-with open("resume_sorted.csv") as table:
+"""with open("resume_sorted.csv", "r", encoding='utf-8') as table:
     reader = csv.DictReader(table, delimiter=";")
-    i = 0
-    j = 0
     person = Person()
     for row in reader:
         if not person.is_equal(list(row.values())[0]):
             do_smth(person)
-        person.feel(list(row.values()))
+        person.feel(list(row.values()))"""

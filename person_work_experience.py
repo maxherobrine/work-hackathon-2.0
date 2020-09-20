@@ -55,6 +55,14 @@ def person_work_experience(personInformation: dict, category: str):
 
 
 def calculate_work_time(start: str, end: str):
+    if not start and not end:
+        return 0
+    start += "-01"
+    if not end:
+        end = DT.datetime.today()
+        end = end.strftime('%Y-%m-%d')
+    else:
+        end += "-01"
     startDate = DT.datetime.strptime(start, '%Y-%m-%d').date()
     endDate = DT.datetime.strptime(end, '%Y-%m-%d').date()
     delta = int((endDate - startDate).days / 30)

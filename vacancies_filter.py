@@ -20,7 +20,7 @@ def prepare_date_for_filter(person: Person):
         start.append(work.start)
         end.append(work.end)
         experiences.append(work.position)
-    personDict.update({'id': person.id, 'categories': experiences, 'startDate': start, 'endDate': end})
+    personDict.update({'id': person.id, 'category': experiences, 'startDate': start, 'endDate': end})
     return personDict
 
 
