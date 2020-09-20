@@ -3,7 +3,7 @@ from split_text import split_text
 
 
 def search(description: str, question: list):
-    # description разбить на список предложений
+    # description разбивается на список предложений
     sentences = list(filter(None, split_text(description)))
     lowerSentences = []
     for sentence in sentences:
@@ -37,10 +37,3 @@ def search(description: str, question: list):
 
     # print(resultSentences)
     return resultSentences
-
-# search('''Формирование заказов
-# Погрузо-разгрузочные работы
-# Проведение инвентаризации
-# Управление электропогрузчиком
-# Отмотка кабельно-проводниковой продукции''',
-#       [{'работ': ['тип', 'вид', 'характер']}, 'занимался', 'выполнял', 'задание', 'деятельность', 'обязанности'])
