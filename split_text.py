@@ -1,21 +1,6 @@
 import re
 
-'''
-text = """Член бригады ресторана
-Обязанности (МакКафе):
-- открытое и эффективное общение с посетителем;
-- правильное приготовления горячих или холодных напитков, десертов и выпечки;
-- поддержание безупречного порядка и чистоты;
-- авторское оформление витрины.
 
-Обязанности (Макдоналдс):
-- открытое и эффективное общение с посетителем;
-- предугадывание желаний посетителя (консультирование и помощь в выборе продукции и т.д.)"""
-
-text2 = 'и т.д. и т.п.'
-text3 = 'а.б.в.г.д. лол'
-text1 = 'А.Б.В.Г., lол'
-'''
 def split_text(text: str):
     i=0
     cout = 0
@@ -49,10 +34,3 @@ def split_text(text: str):
     split_regex = re.compile(r'[.!?…]')
     sentences = [t for t in split_regex.split(text)]
     return sentences
-
-'''
-print(merge_reduction(text3))
-print(merge_reduction(text2))
-print(merge_reduction(text1))
-#print(merge_reduction(text))
-'''
