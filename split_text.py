@@ -21,7 +21,7 @@ def split_text(text: str):
     cout = 0
     size = len(text)
     while i < size:
-        if text[i] == ' ':
+        if text[i] == ' ' and i < size-3:
             if text[i+1].isalpha() and text[i + 2] == '.':
                 text = text[:(i + 2)] + text[(i + 3):]
                 size -= 1
