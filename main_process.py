@@ -45,9 +45,13 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                     # с оптимизацией
                     sentences = search(description, question)
                     if not sentences:
-                        answers.append(QA_answer(questions[i], [description]))
+                        answer = QA_answer(questions[i], [description])
+                        answers.append(answer)
+                        print(answer)
                     else:
-                        answers.append(QA_answer(questions[i], sentences))
+                        answers = QA_answer(questions[i], sentences)
+                        answers.append(answer)
+                        print(answer)
                     # без оптимизации
                     print(QA_answer(questions[i], [description]))
                     i += 1
