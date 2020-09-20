@@ -31,7 +31,7 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
             if personDict:
                 cout += 1
                 personDict = person_work_experience(personDict, category)
-                #print(personDict)
+                print(str(cout) + '. ' + str(personDict))
 
                 description = ''
                 companies = []
@@ -52,4 +52,4 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                 jsonCreate(personDict, companies, category, answers)
 
         person.fill([x.lower() for x in list(row.values())])
-    #print(cout)
+    print(cout)
