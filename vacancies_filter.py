@@ -10,6 +10,13 @@ person4 = {'id': 423456789, 'category': ['кладовщик-техник'], 'st
 person5 = {'id': 523456789, 'category': ['официант'], 'startDate': ["19.02.2012"], 'endDate': ["12.01.2020"]}
 '''
 
+def multiple_replace(target_str, replace_values:list):
+    # получаем заменяемое: подставляемое из словаря в цикле
+    for i in replace_values:
+        # меняем все target_str на подставляемое
+        target_str = target_str.replace(i, ' ')
+    return target_str
+
 
 def prepare_date_for_filter(person: Person):
     personDict = {}
@@ -34,7 +41,8 @@ def vacancies_filter(personInformation: dict, categorySynonyms: list):
               'endDate': []}
     for name in personInformation.get('category'):
         isSuitable = 0
-        words = name.replace('-', ' ').split();
+        words = multiple_replace(name, ['-','"', ',',"'",'.'])
+        words = words.split();
         for i in words:
             if isSuitable:
                 break
