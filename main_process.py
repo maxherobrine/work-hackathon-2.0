@@ -1,6 +1,7 @@
 import csv
 from Read_Data import Person
 import vacancies_filter
+from jsonCreate import jsonCreate
 from person_work_experience import person_work_experience
 from read_file_to_list import read_file_to_list
 from searchBySentence import search
@@ -24,6 +25,7 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
     cout = 0
     for row in reader:
         if not person.is_equal(list(row.values())[0]):
+
             personDict = vacancies_filter.prepare_date_for_filter(person)
             personDict = vacancies_filter.vacancies_filter(personDict, synonyms)
             if personDict:
@@ -36,6 +38,10 @@ with open("resume_sorted.csv", encoding="utf-8") as table:
                     description += work.description
                 for question in storekeeperQuestions:
                     print(search(description, question))
+
+                answers = []
+
+                jsonCreate(personDict, category, answers)
 
         person.fill([x.lower() for x in list(row.values())])
     #print(cout)
